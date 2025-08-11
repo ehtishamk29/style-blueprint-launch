@@ -8,51 +8,52 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 0 0% 5%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 5%;
+    --card-foreground: 0 0% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 5%;
+    --popover-foreground: 0 0% 8%;
 
-    --primary: 0 0% 5%;
+    --primary: 0 0% 8%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 8%;
 
-    --muted: 0 0% 92%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 0 0% 94%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 0 0% 92%;
-    --accent-foreground: 0 0% 5%;
+    --accent: 0 0% 94%;
+    --accent-foreground: 0 0% 8%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 88%;
-    --input: 0 0% 88%;
-    --ring: 0 0% 5%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 8%;
 
-    /* Grunge color palette */
-    --electric-yellow: 48 100% 50%;
-    --neon-pink: 320 100% 50%;
-    --cyan-bright: 180 100% 50%;
-    --grunge-red: 0 85% 45%;
+    /* Clean color palette */
+    --electric-yellow: 45 100% 55%;
+    --neon-pink: 330 100% 65%;
+    --cyan-bright: 180 100% 55%;
+    --grunge-red: 0 80% 50%;
 
-    /* Gradients */
-    --gradient-electric: linear-gradient(135deg, hsl(var(--electric-yellow)), hsl(var(--neon-pink)));
-    --gradient-cyber: linear-gradient(135deg, hsl(var(--cyan-bright)), hsl(var(--neon-pink)));
-    --gradient-dark: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    /* Clean gradients */
+    --gradient-electric: linear-gradient(135deg, hsl(var(--electric-yellow) / 0.1), hsl(var(--neon-pink) / 0.1));
+    --gradient-cyber: linear-gradient(135deg, hsl(var(--cyan-bright) / 0.1), hsl(var(--neon-pink) / 0.1));
+    --gradient-dark: linear-gradient(135deg, hsl(var(--primary) / 0.05), hsl(var(--secondary)));
 
-    /* Shadows */
-    --shadow-glow: 0 0 20px hsl(var(--electric-yellow) / 0.3);
-    --shadow-neon: 0 0 30px hsl(var(--neon-pink) / 0.4);
-    --shadow-brutal: 8px 8px 0px hsl(var(--primary));
+    /* Clean shadows */
+    --shadow-glow: 0 4px 20px hsl(var(--electric-yellow) / 0.15);
+    --shadow-neon: 0 4px 25px hsl(var(--neon-pink) / 0.15);
+    --shadow-brutal: 4px 4px 0px hsl(var(--primary));
+    --shadow-clean: 0 2px 10px hsl(var(--primary) / 0.1);
 
-    --radius: 0.25rem;
+    --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -155,39 +156,82 @@ All colors MUST be HSL.
     to { opacity: 1; }
   }
 
-  /* Utility classes */
-  .animate-glitch {
-    animation: glitch 0.3s infinite;
+  @keyframes slide-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 
-  .animate-float {
-    animation: float 3s ease-in-out infinite;
+  @keyframes slide-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 
-  .animate-pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
+  @keyframes bounce-gentle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
   }
 
-  .animate-slide-up {
-    animation: slide-up 0.6s ease-out;
+  @keyframes rotate-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
 
-  .animate-fade-in {
-    animation: fade-in 0.8s ease-out;
+  @keyframes scale-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
   }
 
-  /* Halftone effect */
-  .halftone::before {
+  /* Enhanced utility classes */
+  .animate-slide-in-left {
+    animation: slide-in-left 0.8s ease-out;
+  }
+
+  .animate-slide-in-right {
+    animation: slide-in-right 0.8s ease-out;
+  }
+
+  .animate-bounce-gentle {
+    animation: bounce-gentle 2s ease-in-out infinite;
+  }
+
+  .animate-rotate-slow {
+    animation: rotate-slow 20s linear infinite;
+  }
+
+  .animate-scale-pulse {
+    animation: scale-pulse 3s ease-in-out infinite;
+  }
+
+  /* Enhanced halftone effect */
+  .halftone-clean::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: radial-gradient(circle, hsl(var(--primary)) 1px, transparent 1px);
-    background-size: 10px 10px;
-    opacity: 0.1;
+    background-image: radial-gradient(circle, hsl(var(--primary)) 0.5px, transparent 0.5px);
+    background-size: 15px 15px;
+    opacity: 0.03;
     pointer-events: none;
+  }
+
+  /* Text selection */
+  ::selection {
+    background: hsl(var(--electric-yellow) / 0.2);
+    color: hsl(var(--primary));
   }
 
   /* Custom scrollbar */

@@ -79,6 +79,7 @@ export default {
 				'glow': 'var(--shadow-glow)',
 				'neon': 'var(--shadow-neon)',
 				'brutal': 'var(--shadow-brutal)',
+				'clean': 'var(--shadow-clean)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

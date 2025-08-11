@@ -44,23 +44,25 @@ const PrizesSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-background relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute top-0 left-0 w-full h-full opacity-10">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-electric-yellow rounded-full blur-xl"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-electric-pink rounded-full blur-xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-electric-cyan rounded-full blur-xl"></div>
+    <section className="py-24 bg-background relative overflow-hidden">
+      {/* Clean background elements */}
+      <div className="absolute top-0 left-0 w-full h-full opacity-5">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-electric-yellow rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-electric-pink rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-electric-cyan rounded-full blur-3xl"></div>
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-7xl mx-auto space-y-16">
-          {/* Title */}
-          <div className="text-center space-y-4">
-            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight">
-              <span className="block text-primary">Epic</span>
-              <span className="block bg-gradient-electric bg-clip-text text-transparent">Prizes</span>
+        <div className="max-w-7xl mx-auto space-y-20">
+          {/* Title with clean design */}
+          <div className="text-center space-y-6">
+            <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tight text-primary animate-slide-in-left">
+              Epic Prizes
             </h2>
-            <div className="w-24 h-1 bg-electric-yellow mx-auto"></div>
+            <div className="w-32 h-2 bg-electric-yellow mx-auto rounded-full"></div>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Incredible rewards for Pakistan's most innovative fashion designers
+            </p>
           </div>
           
           {/* Prize cards */}
@@ -76,24 +78,24 @@ const PrizesSection = () => {
                     : ''
                 }`}
               >
-                {/* Card container */}
+                {/* Card container with clean design */}
                 <div className={`
-                  relative p-8 rounded-lg border-4 transition-all duration-300 hover:scale-105
+                  relative p-8 rounded-2xl border-2 transition-all duration-300 hover:scale-105 bg-white shadow-clean
                   ${prize.position === 'first' 
-                    ? 'bg-gradient-electric border-primary shadow-glow' 
+                    ? 'border-electric-yellow shadow-glow' 
                     : prize.position === 'second'
-                    ? 'bg-gradient-cyber border-primary shadow-neon'
-                    : 'bg-secondary border-electric-yellow'
+                    ? 'border-electric-pink shadow-neon'
+                    : 'border-electric-cyan'
                   }
                 `}>
-                  {/* Rank badge */}
+                  {/* Rank badge with clean styling */}
                   <div className={`
-                    absolute -top-4 left-1/2 transform -translate-x-1/2 px-6 py-2 rounded-full font-black text-sm uppercase tracking-wider
+                    absolute -top-4 left-1/2 transform -translate-x-1/2 px-8 py-3 rounded-full font-black text-lg uppercase tracking-wider
                     ${prize.position === 'first' 
-                      ? 'bg-electric-yellow text-primary' 
+                      ? 'bg-electric-yellow text-primary border-2 border-primary' 
                       : prize.position === 'second'
-                      ? 'bg-electric-pink text-primary'
-                      : 'bg-electric-cyan text-primary'
+                      ? 'bg-electric-pink text-primary border-2 border-primary'
+                      : 'bg-electric-cyan text-primary border-2 border-primary'
                     }
                   `}>
                     {prize.place}
@@ -142,7 +144,7 @@ const PrizesSection = () => {
           
           {/* Call to action */}
           <div className="text-center pt-12">
-            <Button variant="glitch" size="lg" className="text-xl px-12 py-6 animate-pulse-glow">
+            <Button variant="clean" size="lg" className="text-xl px-12 py-6 animate-scale-pulse">
               Join The Competition
             </Button>
             <p className="mt-4 text-foreground/60 text-sm">
