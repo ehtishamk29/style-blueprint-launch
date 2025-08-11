@@ -61,7 +61,24 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Grunge color system
+				electric: {
+					yellow: 'hsl(var(--electric-yellow))',
+					pink: 'hsl(var(--neon-pink))',
+					cyan: 'hsl(var(--cyan-bright))',
+					red: 'hsl(var(--grunge-red))'
 				}
+			},
+			backgroundImage: {
+				'gradient-electric': 'var(--gradient-electric)',
+				'gradient-cyber': 'var(--gradient-cyber)',
+				'gradient-dark': 'var(--gradient-dark)',
+			},
+			boxShadow: {
+				'glow': 'var(--shadow-glow)',
+				'neon': 'var(--shadow-neon)',
+				'brutal': 'var(--shadow-brutal)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

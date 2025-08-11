@@ -18,6 +18,10 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        electric: "bg-gradient-electric text-primary font-bold hover:shadow-glow transition-all duration-300 hover:scale-105 border-2 border-primary",
+        cyber: "bg-gradient-cyber text-primary font-bold hover:shadow-neon transition-all duration-300 hover:scale-105 border-2 border-primary",
+        brutal: "bg-primary text-primary-foreground hover:bg-secondary shadow-brutal hover:shadow-glow transition-all duration-200 font-bold uppercase tracking-wider",
+        glitch: "bg-electric-yellow text-primary font-black hover:animate-glitch transition-all duration-300 border-2 border-primary",
       },
       size: {
         default: "h-10 px-4 py-2",
